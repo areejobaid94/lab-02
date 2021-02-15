@@ -21,14 +21,21 @@ card.prototype.render = function () {
     card.find("h3").text(`Description: ${this.description}`);
     card.find(".keyword").text(`Keyword: ${this.keyword}`);
     card.find(".horns").text(`Horns: ${this.horns}`);
+    card.toggleClass('card')
+    card.show();
     $("#allItems").append(card);
 }
 
 $(document).ready(() => {
+    $("#photo-template").hide();
     $.ajax({ url: "data/page-1.json", dataType: 'json' }).then(function (data) {
         showAll(data, false);
         selectedArr = allArr.slice();
+        selectedSort = 'title';
+        sortBy();
     });
+    $("#sort-by").val('title');
+    $(`#quick-sort-title`).css('color', 'red');
     $('#select').on('change', function (e) {
         selectedKey = this.value;
         updateSelectedArr(selectedKey)
