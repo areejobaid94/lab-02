@@ -53,7 +53,7 @@ $(document).ready(() => {
     $('#quick-sort-horns').on('click', function (e) {
         e.preventDefault();
         selectedSort = 'horns';
-        updateSelectedArr();
+        updateSelectedArr(selectedKey);
         $('button').css('color', 'gray');
         $(this).css('color', 'red');
         sortBy();
@@ -62,7 +62,7 @@ $(document).ready(() => {
     $('#quick-sort-title').on('click', function (e) {
         e.preventDefault();
         selectedSort = 'title';
-        updateSelectedArr();
+        updateSelectedArr(selectedKey);
         $('button').css('color', 'gray');
         $(this).css('color', 'red');
         sortBy();
